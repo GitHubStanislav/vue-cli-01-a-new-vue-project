@@ -62,8 +62,10 @@ export default {
       identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
     },
     addCountOpened(id){
-    const index = this.friends.find(friend => friend.id = id)
+    const index = this.friends
+        .find(friend => friend.id === id)
       index.counter++
+      console.log(id)
     }
   }
 };
