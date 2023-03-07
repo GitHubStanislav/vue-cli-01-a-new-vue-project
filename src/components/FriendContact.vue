@@ -1,6 +1,7 @@
 <template>
   <li>
     <h2>{{ friendName }} {{ isFavorite ? '(Favorite)' : '' }}</h2>
+    <p>{{counter}}</p>
     <button
         @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }} Details
     </button>
@@ -43,7 +44,8 @@ export default {
       type: Boolean,
       required: false,
       default: false
-    }
+    },
+    counter: Number
 
   },
   data() {
@@ -55,6 +57,9 @@ export default {
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
+      if(this.detailsAreVisible) {
+        this.$emit('addCountOpened', this.id)
+      }
     },
     toggleFavorite() {
       this.$emit('toggle-favorite', this.id)
