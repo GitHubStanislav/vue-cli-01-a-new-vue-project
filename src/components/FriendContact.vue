@@ -23,7 +23,7 @@
 <script>
 export default {
   props: {
-    id:{
+    id: {
       type: String,
       required: true
     },
@@ -57,7 +57,7 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
     toggleFavorite() {
-      this.$emit('toggle-favorite', this.id )
+      this.$emit('toggle-favorite', this.id)
     },
   },
 }
