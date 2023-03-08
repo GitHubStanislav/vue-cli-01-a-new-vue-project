@@ -3,7 +3,7 @@
     <header>
       <h1>My Friends</h1>
     </header>
-    <new-friend/>
+    <new-friend @add-contact="addContact"/>
     <ul>
       <friend-contact
           v-for="friend in friends"
@@ -16,6 +16,7 @@
           :counter="friend.counter"
           @toggle-favorite="toggleFavoriteStatus"
           @addCountOpened="addCountOpened"
+          @delete="deleteContact"
 
       />
     </ul>
@@ -47,7 +48,7 @@ export default {
           name: "Julie Jones",
           phone: "0987 654421 21",
           email: "julie@localhost.com",
-          isFavorite: false ,
+          isFavorite: false,
           counter: 0
         },
       ],
@@ -61,11 +62,25 @@ export default {
           );
       identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
     },
-    addCountOpened(id){
-    const index = this.friends
-        .find(friend => friend.id === id)
+    addCountOpened(id) {
+      const index = this.friends
+          .find(friend => friend.id === id)
       index.counter++
       console.log(id)
+    },
+    addContact(name, phone, email) {
+      const newFriendContact = {
+        id: new Date().toISOString(),
+        name: name,
+        phone: phone,
+        email: email,
+        isFavorite: false,
+        counter: 0
+      };
+      this.friends.push(newFriendContact)
+    },
+    deleteContact(friendId) {
+      this.friends = this.friends.filter(friend => friend.id !== friendId)
     }
   }
 };
@@ -136,16 +151,19 @@ header {
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
-#app input{
+
+#app input {
   font: inherit;
   padding: 0.15rem;
 }
-#app label{
+
+#app label {
   font-weight: bold;
   margin-right: 1rem;
   width: 7rem;
   display: inline-block;
 }
+
 #app form div {
   margin: 1rem 0;
 }

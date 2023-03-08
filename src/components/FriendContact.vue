@@ -18,11 +18,13 @@
         {{ friendEmail }}
       </li>
     </ul>
+    <button @click="$emit('delete',id)">Delete</button>
   </li>
 </template>
 
 <script>
 export default {
+  emits:['delete','toggle-favorite'],
   props: {
     id: {
       type: String,
