@@ -7,6 +7,11 @@
         :info-text="activeUser.description"
         :role="activeUser.role"
     ></user-info>
+
+    <test-slot>
+
+    </test-slot>
+
   </div>
 </template>
 
@@ -14,12 +19,14 @@
 import TheHeader from "@/components/TheHeader.vue";
 import UserInfo from "@/components/UserInfo.vue";
 import BadgeList from "@/components/BadgeList.vue";
+import TestSlot from "@/components/TestSlot.vue";
 
 export default {
-  components:{
+  components: {
     TheHeader,
     UserInfo,
-    BadgeList
+    BadgeList,
+    TestSlot
   },
   data() {
     return {
