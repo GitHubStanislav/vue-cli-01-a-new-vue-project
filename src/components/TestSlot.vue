@@ -1,6 +1,6 @@
 <template>
 <div>
-{{userName}}
+  <slot></slot>
 </div>
 
 </template>
@@ -14,12 +14,10 @@ export default {
 
 <style scoped>
 div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 50%;
-  border: 2px black solid;
-  margin: 10px auto;
+  margin: 2rem auto;
+  max-width: 30rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
 }
 </style>

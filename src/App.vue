@@ -9,7 +9,7 @@
     ></user-info>
 
     <test-slot>
-
+hello
     </test-slot>
 
   </div>
