@@ -23,11 +23,15 @@
         {{ SlotProps.firstName }}
       </template>
     </test-props-list>
-    <button @click="setSelectedComponent('active-goals')"> active-goals</button>
-    <button @click="setSelectedComponent('manage-goals')"> manage-goals</button>
-    <manage-goals v-if="selectedComponents === 'manage-goals'"></manage-goals>
-    <active-goals v-if="selectedComponents === 'active-goals'"></active-goals>
-
+    <div>
+      <button @click="setSelectedComponent('active-goals')"> active-goals</button>
+      <button @click="setSelectedComponent('manage-goals')"> manage-goals</button>
+    </div>
+    <!--    <manage-goals v-if="selectedComponents === 'manage-goals'"></manage-goals>-->
+    <!--    <active-goals v-if="selectedComponents === 'active-goals'"></active-goals>-->
+    <keep-alive>
+      <component :is="selectedComponents"></component>
+    </keep-alive>
   </div>
 </template>
 
@@ -40,6 +44,7 @@ import TestPropsList from "@/components/TestPropsList.vue";
 import ManageGoals from "@/components/ManageGoals.vue";
 import ActiveGoals from "@/components/ActiveGoals.vue";
 
+
 export default {
   components: {
     TheHeader,
@@ -49,6 +54,7 @@ export default {
     TestPropsList,
     ActiveGoals,
     ManageGoals,
+
   },
   data() {
     return {
@@ -57,18 +63,24 @@ export default {
         description: 'Site owner and admin',
         role: 'admin',
       },
-      selectedComponents: 'active-goals'
+      selectedComponents: 'active-goals',
+      helloGreat: 'Hello'
+
     };
   },
-  methods:{
-    setSelectedComponent(cmp){
+  methods: {
+    setSelectedComponent(cmp) {
       this.selectedComponents = cmp
     },
+    changeHello(event) {
+      this.helloGreat = event
+    }
   }
 };
 </script>
 
 <style>
+
 html {
   font-family: sans-serif;
 }
