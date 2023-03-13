@@ -1,6 +1,10 @@
 <template>
 <div>
+<<<<<<< Updated upstream
   <slot></slot>
+=======
+<slot></slot>
+>>>>>>> Stashed changes
 </div>
 
 </template>
