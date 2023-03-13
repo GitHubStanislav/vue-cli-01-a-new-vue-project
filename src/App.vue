@@ -7,10 +7,26 @@
         :info-text="activeUser.description"
         :role="activeUser.role"
     ></user-info>
-
     <test-slot>
-Hello
+      <template v-slot:header="{text }">
+        {{ text }}
+      </template>
     </test-slot>
+    <!--Test test-->
+    <test-props-list>
+      <template v-slot:default="SlotProps">
+        {{ SlotProps.firstName }} {{ SlotProps.latsName }}
+      </template>
+    </test-props-list>
+    <test-props-list>
+      <template v-slot:default="SlotProps">
+        {{ SlotProps.firstName }}
+      </template>
+    </test-props-list>
+    <button @click="setSelectedComponent('active-goals')"> active-goals</button>
+    <button @click="setSelectedComponent('manage-goals')"> manage-goals</button>
+    <manage-goals v-if="selectedComponents === 'manage-goals'"></manage-goals>
+    <active-goals v-if="selectedComponents === 'active-goals'"></active-goals>
 
   </div>
 </template>
@@ -20,13 +36,19 @@ import TheHeader from "@/components/TheHeader.vue";
 import UserInfo from "@/components/UserInfo.vue";
 import BadgeList from "@/components/BadgeList.vue";
 import TestSlot from "@/components/TestSlot.vue";
+import TestPropsList from "@/components/TestPropsList.vue";
+import ManageGoals from "@/components/ManageGoals.vue";
+import ActiveGoals from "@/components/ActiveGoals.vue";
 
 export default {
   components: {
     TheHeader,
     UserInfo,
     BadgeList,
-    TestSlot
+    TestSlot,
+    TestPropsList,
+    ActiveGoals,
+    ManageGoals,
   },
   data() {
     return {
@@ -35,8 +57,14 @@ export default {
         description: 'Site owner and admin',
         role: 'admin',
       },
+      selectedComponents: 'active-goals'
     };
   },
+  methods:{
+    setSelectedComponent(cmp){
+      this.selectedComponents = cmp
+    },
+  }
 };
 </script>
 
@@ -47,5 +75,13 @@ html {
 
 body {
   margin: 0;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
 }
 </style>
