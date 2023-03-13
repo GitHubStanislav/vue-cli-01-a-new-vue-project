@@ -1,23 +1,19 @@
 <template>
-<div>
-<<<<<<< Updated upstream
-  <slot></slot>
-=======
-<slot></slot>
->>>>>>> Stashed changes
-</div>
+  <div>
+    <slot></slot>
+  </div>
 
 </template>
 
 <script>
 export default {
   name: "TestSlot",
-  props:['userName']
+  props: ['userName']
 }
 </script>
 
 <style scoped>
-div{
+div {
   margin: 2rem auto;
   max-width: 30rem;
   border-radius: 12px;
