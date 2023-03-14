@@ -2,6 +2,7 @@
   <div>
     <the-header></the-header>
     <badge-list></badge-list>
+    <my-test></my-test>
     <user-info
         :full-name="activeUser.name"
         :info-text="activeUser.description"
@@ -43,10 +44,13 @@ import TestSlot from "@/components/TestSlot.vue";
 import TestPropsList from "@/components/TestPropsList.vue";
 import ManageGoals from "@/components/ManageGoals.vue";
 import ActiveGoals from "@/components/ActiveGoals.vue";
+import MyTest from "@/components/MyTest.vue";
+
 
 
 export default {
   components: {
+    MyTest,
     TheHeader,
     UserInfo,
     BadgeList,
