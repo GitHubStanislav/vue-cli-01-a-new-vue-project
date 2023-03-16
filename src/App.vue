@@ -4,12 +4,12 @@
     <badge-list></badge-list>
     <my-test></my-test>
     <user-info
-        :full-name="activeUser.name"
-        :info-text="activeUser.description"
-        :role="activeUser.role"
+      :full-name="activeUser.name"
+      :info-text="activeUser.description"
+      :role="activeUser.role"
     ></user-info>
     <test-slot>
-      <template v-slot:header="{text }">
+      <template v-slot:header="{ text }">
         {{ text }}
       </template>
     </test-slot>
@@ -25,8 +25,8 @@
       </template>
     </test-props-list>
     <div>
-      <button @click="setSelectedComponent('active-goals')"> active-goals</button>
-      <button @click="setSelectedComponent('manage-goals')"> manage-goals</button>
+      <button @click="setSelectedComponent('active-goals')">active-goals</button>
+      <button @click="setSelectedComponent('manage-goals')">manage-goals</button>
     </div>
     <!--    <manage-goals v-if="selectedComponents === 'manage-goals'"></manage-goals>-->
     <!--    <active-goals v-if="selectedComponents === 'active-goals'"></active-goals>-->
@@ -46,8 +46,6 @@ import ManageGoals from "@/components/ManageGoals.vue";
 import ActiveGoals from "@/components/ActiveGoals.vue";
 import MyTest from "@/components/MyTest.vue";
 
-
-
 export default {
   components: {
     MyTest,
@@ -58,33 +56,30 @@ export default {
     TestPropsList,
     ActiveGoals,
     ManageGoals,
-
   },
   data() {
     return {
       activeUser: {
-        name: 'Maximilian Schwarzmüller',
-        description: 'Site owner and admin',
-        role: 'admin',
+        name: "Maximilian Schwarzmüller",
+        description: "Site owner and admin",
+        role: "admin",
       },
-      selectedComponents: 'active-goals',
-      helloGreat: 'Hello'
-
+      selectedComponents: "active-goals",
+      helloGreat: "Hello",
     };
   },
   methods: {
     setSelectedComponent(cmp) {
-      this.selectedComponents = cmp
+      this.selectedComponents = cmp;
     },
     changeHello(event) {
-      this.helloGreat = event
-    }
-  }
+      this.helloGreat = event;
+    },
+  },
 };
 </script>
 
 <style>
-
 html {
   font-family: sans-serif;
 }
