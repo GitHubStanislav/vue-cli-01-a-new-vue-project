@@ -1,39 +1,29 @@
 <template>
-  <ul>
-<learning-resource
-    v-for="res in storedResources" :key="res.id"
-    :title="res.tittle"
-    :link="res.link"
-    :description="res.description"
->
-
-</learning-resource>
-  </ul>
+<stored-resources :resources="storedResources"></stored-resources>
 </template>
 
 <script>
 
 
 
-
-import LearningResource from "@/components/learning-resources/LearningResource.vue";
+import StoredResources from "@/components/learning-resources/StoredResources.vue";
 
 export default {
-  components: {LearningResource},
+  components: {StoredResources, },
   data() {
     return {
       storedResources: [
         {
           id: 'official-guide',
-          tittle:'Official-Guide',
-          description:'The official Vue.js documentation.',
-          link:'https://vuejs.org/'
+          tittle: 'Official-Guide',
+          description: 'The official Vue.js documentation.',
+          link: 'https://vuejs.org/'
         },
         {
           id: 'google',
-          tittle:'Google',
-          description:'Learn to google...',
-          link:'https://google.org/'
+          tittle: 'Google',
+          description: 'Learn to google...',
+          link: 'https://google.org/'
         }
       ]
     };
@@ -42,8 +32,17 @@ export default {
 </script>
 
 <style>
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
 }
 
 </style>
