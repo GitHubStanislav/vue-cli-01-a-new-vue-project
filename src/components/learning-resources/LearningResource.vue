@@ -3,7 +3,9 @@
     <base-card>
       <header>
         <h3>{{ title }}</h3>
-        <button>Delete</button>
+        <buttons-style>
+          <button>Delete</button>
+        </buttons-style>
       </header>
       <p>{{ description }}</p>
       <nav>
@@ -16,9 +18,10 @@
 <script>
 
 import BaseCard from "@/components/UI/BaseCard.vue";
+import ButtonsStyleVue from "../UI/ButtonsStyle.vue";
 
 export default {
-  components: {BaseCard},
+  components: { BaseCard, ButtonsStyleVue, },
   props: ['title', 'description', 'link'],
   name: "LearningResource"
 }
