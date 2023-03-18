@@ -1,14 +1,14 @@
 <template>
-<header>
-  <h1>{{title}}</h1>
-</header>
+  <header>
+    <h1>{{ title }}</h1>
+  </header>
 </template>
 
 <script>
 export default {
   name: "TheHeader",
-  props:['title']
-}
+  props: ["title"],
+};
 </script>
 
 <style scoped>
