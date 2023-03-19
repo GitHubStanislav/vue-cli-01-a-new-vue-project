@@ -1,8 +1,6 @@
 <template>
   <the-header title="Remember me"></the-header>
-  <stored-resources :resources="storedResources">
-
-  </stored-resources>
+  <stored-resources :resources="storedResources"></stored-resources>
 </template>
 
 <script>
@@ -12,7 +10,7 @@ import StoredResources from "@/components/learning-resources/StoredResources.vue
 import TheHeader from "@/components/layouts/TheHeader.vue";
 
 export default {
-  components: {TheHeader, StoredResources,},
+  components: { TheHeader, StoredResources, },
   data() {
     return {
       storedResources: [
@@ -35,7 +33,6 @@ export default {
 </script>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
@@ -47,5 +44,4 @@ html {
 body {
   margin: 0;
 }
-
 </style>
