@@ -17,11 +17,10 @@
 
 <script>
 
-import BaseCard from "@/components/UI/BaseCard.vue";
-import ButtonsStyle from '@/components/UI/ButtonsStyle'
+
+
 
 export default {
-  components: { BaseCard, ButtonsStyle, },
   props: ['title', 'description', 'link'],
   name: "LearningResource"
 }

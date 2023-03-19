@@ -14,14 +14,13 @@ import LearningResource from "@/components/learning-resources/LearningResource.v
 export default {
   components:{LearningResource},
   name: "StoredResources",
-  props:['resources']
+  inject:['resources']
 }
 </script>
 
 <style scoped>
 ul {
   list-style: none;
-  margin: 0;
   padding: 0;
   margin: auto;
   max-width: 40rem;
