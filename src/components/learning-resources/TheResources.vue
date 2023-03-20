@@ -1,16 +1,15 @@
 <template>
   <base-card>
-
     <buttons-style @click="setSelectedTab('stored-resources')">
       Stored Resources
     </buttons-style>
-
     <buttons-style @click="setSelectedTab('add-resource')">
       Add resources
     </buttons-style>
-
   </base-card>
-  <component :is="selectedTab"></component>
+  <keep-alive>
+    <component :is="selectedTab"></component>
+  </keep-alive>
 </template>
 
 <script>
