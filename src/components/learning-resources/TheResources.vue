@@ -1,11 +1,11 @@
 <template>
   <base-card>
 
-    <buttons-style mode="flat" @click="setSelectedTab('stored-resources')">
+    <buttons-style @click="setSelectedTab('stored-resources')">
       Stored Resources
     </buttons-style>
 
-    <buttons-style mode="flat" @click="setSelectedTab('add-resource')">
+    <buttons-style @click="setSelectedTab('add-resource')">
       Add resources
     </buttons-style>
 
@@ -19,20 +19,20 @@ import StoredResources from '@/components/learning-resources/StoredResources'
 import AddResource from "@/components/learning-resources/AddResource.vue";
 
 export default {
-  components: {StoredResources,AddResource},
+  components: {StoredResources, AddResource},
   data() {
     return {
       selectedTab: 'stored-resources',
       storedResources: [
         {
           id: 'official-guide',
-          tittle: 'Official-Guide',
+          title: 'Official-Guide',
           description: 'The official Vue.js documentation.',
           link: 'https://vuejs.org/'
         },
         {
           id: 'google',
-          tittle: 'Google',
+          title: 'Google',
           description: 'Learn to google...',
           link: 'https://google.org/'
         }
@@ -41,12 +41,23 @@ export default {
   },
   provide() {
     return {
-      resources: this.storedResources
+      resources: this.storedResources,
+      addResource: this.addResource
     }
   },
   methods: {
     setSelectedTab(tab) {
       this.selectedTab = tab
+    },
+    addResource(title, description, url) {
+      const newResource = {
+        id: new Date().toISOString(),
+        title: title,
+        description: description,
+        link: url
+      }
+      this.storedResources.unshift(newResource)
+      this.selectedTab = 'stored-resources'
     }
   }
 }
