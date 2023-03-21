@@ -77,8 +77,11 @@ export default {
         isFavorite: false,
         counter: 0
       };
-      this.friends.push(newFriendContact)
+      if (name.trim() !== '' || phone.trim() !== '' || email.trim() !== '') {
+        this.friends.push(newFriendContact)
+      }
     },
+
     deleteContact(friendId) {
       this.friends = this.friends.filter(friend => friend.id !== friendId)
     }
