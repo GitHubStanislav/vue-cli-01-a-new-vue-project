@@ -10,6 +10,7 @@
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
       <input id="age"
+             ref="ref"
              name="age"
              type="number"
              v-model="userAge"/>
@@ -115,6 +116,7 @@ export default {
       console.log(this.userName)
       this.userName = ''
       console.log(this.userAge)
+      console.log(this.$refs.ref.value)
       this.userAge = null
       console.log(this.referrer)
       this.referrer = 'wom'
