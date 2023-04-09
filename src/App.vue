@@ -1,6 +1,6 @@
 <template>
  <div class="app">
-  <form>
+  <form >
     <h4>Creating post</h4>
     <input class="input" type="text" placeholder="Add some post:)" />
     <input class="input" type="text" placeholder="Description" />
@@ -78,7 +78,7 @@ form{
   color: #000000;
   padding: 3px 10px;
   margin-top: 10px;
-  font-size: 11px;
+  font-size: 14px;
   background: #fff;
 
 }
