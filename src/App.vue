@@ -1,13 +1,16 @@
 <template>
   <div class="app">
-
-
+    <post-form  @click="createPost"></post-form>
+    <post-list :posts="posts"></post-list>
   </div>
 </template>
 
 <script>
+import PostForm from "@/components/PostForm.vue";
+import PostList from "@/components/PostList.vue";
+
 export default {
-  components: {},
+  components: { PostList, PostForm },
   data() {
     return {
       posts: [
@@ -58,6 +61,4 @@ export default {
 .app {
   padding: 20px;
 }
-
-
 </style>

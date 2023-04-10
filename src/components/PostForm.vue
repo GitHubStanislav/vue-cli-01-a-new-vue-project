@@ -3,11 +3,16 @@
     <h4>Creating post</h4>
     <input
       class="input"
-      v-model="title"
+      v-model="post.title"
       type="text"
       placeholder="Add some post:)"
     />
-    <input class="input" v-model="body" type="text" placeholder="Description" />
+    <input
+      class="input"
+      v-model="post.body"
+      type="text"
+      placeholder="Description"
+    />
     <button class="btn" @click="createPost">Create post</button>
   </form>
 </template>
@@ -15,6 +20,14 @@
 <script>
 export default {
   name: "PostForm",
+  data() {
+    return {
+      post: {
+        title: "",
+        body: "",
+      },
+    };
+  },
 };
 </script>
 

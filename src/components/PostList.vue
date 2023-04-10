@@ -7,7 +7,8 @@
 
 <script>
 export default {
-  name: "PostList",
+  props:['posts'],
+    name: "PostList",
 };
 </script>
 
