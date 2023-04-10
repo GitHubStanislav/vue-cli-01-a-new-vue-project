@@ -1,16 +1,26 @@
 <template>
- <div class="app">
-  <form >
-    <h4>Creating post</h4>
-    <input class="input" type="text" placeholder="Add some post:)" />
-    <input class="input" type="text" placeholder="Description" />
-    <button class="btn">Create post</button>
-  </form>
-  <div class="post" v-for="post in posts" :key="post.id">
-    <div>Name {{ post.title }}</div>
-    <div>Description {{ post.body }}</div>
+  <div class="app">
+    <form @submit.prevent>
+      <h4>Creating post</h4>
+      <input
+        class="input"
+        v-model="title"
+        type="text"
+        placeholder="Add some post:)"
+      />
+      <input
+        class="input"
+        v-model="body"
+        type="text"
+        placeholder="Description"
+      />
+      <button class="btn" @click="createPost">Create post</button>
+    </form>
+    <div class="post" v-for="post in posts" :key="post.id">
+      <div>Name: {{ post.title }}</div>
+      <div>Description: {{ post.body }}</div>
+    </div>
   </div>
- </div>
 </template>
 
 <script>
@@ -35,9 +45,24 @@ export default {
           body: "Description 3",
         },
       ],
+      title: "",
+      body: "",
     };
   },
-  methods: {},
+  methods: {
+    createPost() {
+      const newPost = {
+        id: Date.now(),
+        title: this.title,
+        body: this.body,
+      };
+      if (this.title.trim() !== "" && this.body.trim() !== "") {
+        this.posts.push(newPost);
+      }
+      this.title = "";
+      this.body = "";
+    },
+  },
 };
 </script>
 
@@ -47,23 +72,27 @@ export default {
   margin: 0;
   padding: 0;
 }
-.app{
-    padding: 20px;
+
+.app {
+  padding: 20px;
 }
-form{
-    display: flex;
-    flex-direction: column;
+
+form {
+  display: flex;
+  flex-direction: column;
 }
-.btn{
-    margin-top: 15px;
-    align-self: flex-end;
-    background: lightsteelblue;
-    color: black;
-    border: 1px solid teal;
-    padding: 2px;
+
+.btn {
+  margin-top: 15px;
+  align-self: flex-end;
+  background: lightsteelblue;
+  color: black;
+  border: 1px solid teal;
+  padding: 2px;
 }
-.btn:hover{
-    background-color: coral;
+
+.btn:hover {
+  background-color: coral;
 }
 
 .post {
@@ -72,14 +101,14 @@ form{
   border-radius: 12px;
   padding: 1rem;
 }
+
 .input {
   width: 100%;
   border: 1px solid #9e9e9e;
   color: #000000;
   padding: 3px 10px;
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
   background: #fff;
-
 }
 </style>
