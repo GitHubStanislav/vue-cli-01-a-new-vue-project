@@ -13,7 +13,7 @@
       type="text"
       placeholder="Description"
     />
-    <button class="btn" @click="createPost">Create post</button>
+    <button class="btn" @click="createNewPost">Create post</button>
   </form>
 </template>
 
@@ -27,6 +27,19 @@ export default {
         body: "",
       },
     };
+  },
+  methods: {
+    createNewPost() {
+      this.post.id = new Date(); //create ad with Date()
+
+      if (this.post.title.trim() !== "" && this.post.body.trim() !== "") {
+        this.$emit("create", this.post);
+      }
+      this.post = {
+        title: "",
+        body: "",
+      };
+    },
   },
 };
 </script>

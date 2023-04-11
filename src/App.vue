@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <post-form  @click="createPost"></post-form>
+    <post-form @create="createPost"></post-form>
     <post-list :posts="posts"></post-list>
   </div>
 </template>
@@ -30,22 +30,11 @@ export default {
           body: "Description 3",
         },
       ],
-      title: "",
-      body: "",
     };
   },
   methods: {
-    createPost() {
-      const newPost = {
-        id: Date.now(),
-        title: this.title,
-        body: this.body,
-      };
-      if (this.title.trim() !== "" && this.body.trim() !== "") {
-        this.posts.push(newPost);
-      }
-      this.title = "";
-      this.body = "";
+    createPost(post) {
+      this.posts.push(post);
     },
   },
 };
