@@ -13,13 +13,16 @@
       type="text"
       placeholder="Description"
     />
-    <button class="btn" @click="createNewPost">Create post</button>
+    <my-button @click="createNewPost"> Create post </my-button>
   </form>
 </template>
 
 <script>
+import MyButton from "@/components/UI/MyButton.vue";
+
 export default {
   name: "PostForm",
+  components: { MyButton },
   data() {
     return {
       post: {
@@ -48,19 +51,6 @@ export default {
 form {
   display: flex;
   flex-direction: column;
-}
-
-.btn {
-  margin-top: 15px;
-  align-self: flex-end;
-  background: lightsteelblue;
-  color: black;
-  border: 1px solid teal;
-  padding: 2px;
-}
-
-.btn:hover {
-  background-color: coral;
 }
 
 .input {
