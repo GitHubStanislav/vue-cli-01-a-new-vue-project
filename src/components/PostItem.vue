@@ -2,13 +2,11 @@
   <div class="post">
     <div>Name: {{ post.title }}</div>
     <div>Description: {{ post.body }}</div>
-    <my-button style="background-color: red; color: white">Delete</my-button>
+    <my-button @click="$emit('remove',post)" style="background-color: red; color: white">Delete</my-button>
   </div>
 </template>
 
 <script>
-
-
 export default {
   props: {
     post: {

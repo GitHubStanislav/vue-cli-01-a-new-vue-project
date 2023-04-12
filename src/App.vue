@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <post-form @create="createPost"></post-form>
-    <post-list :posts="posts"></post-list>
+    <post-list @remove="removePost" :posts="posts"></post-list>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
           body: "Description 2",
         },
         {
-          id: 2,
+          id: 3,
           title: "C++",
           body: "Description 3",
         },
@@ -35,6 +35,9 @@ export default {
   methods: {
     createPost(post) {
       this.posts.push(post);
+    },
+    removePost(post) {
+      this.posts = this.posts.filter((p) => p.id !== post.id);
     },
   },
 };
