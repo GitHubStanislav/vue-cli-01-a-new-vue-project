@@ -1,8 +1,6 @@
 <template>
   <div class="app">
-   <my-dialog>
-
-   </my-dialog>
+    <my-dialog v-if="posts.length >= 4"><h1>You have limit</h1></my-dialog>
     <post-form @create="createPost"></post-form>
     <post-list @remove="removePost" :posts="posts"></post-list>
   </div>
@@ -14,7 +12,7 @@ import PostList from "@/components/PostList.vue";
 import MyDialog from "@/components/UI/MyDialog.vue";
 
 export default {
-  components: {MyDialog, PostList, PostForm },
+  components: { MyDialog, PostList, PostForm },
   data() {
     return {
       posts: [

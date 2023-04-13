@@ -1,5 +1,5 @@
 <template>
-  <div class="dialog" v-if="show">
+  <div class="dialog">
 <div class="dialog__content">
 <slot></slot>
 </div>
@@ -20,10 +20,10 @@ export default {
 
 <style scoped>
 .dialog{
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: 20%;
+    right: 20%;
+    bottom: 20%;
+    left: 20%;
     background: bisque;
     position: fixed;
     display: flex;
@@ -34,5 +34,7 @@ export default {
     border-radius: 12px;
     min-height: 50px;
     min-width: 300px;
+    padding: 20px;
+    text-align: center;
 }
 </style>
